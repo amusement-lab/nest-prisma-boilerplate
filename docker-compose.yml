@@ -1,0 +1,22 @@
+services:
+  db:
+    container_name: pg_container
+    image: postgres:15.4-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: db
+    volumes:
+      - './tmp/db:/var/lib/postgresql/data'
+    ports:
+      - '5902:5432'
+
+  adminer:
+    container_name: adminer_container
+    depends_on:
+      - db
+    image: adminer
+    restart: always
+    ports:
+      - '5903:8080'
