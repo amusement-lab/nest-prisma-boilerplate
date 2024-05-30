@@ -1,4 +1,10 @@
-import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
+import {
+  Injectable,
+  CanActivate,
+  ExecutionContext,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 
 import { ModulePermissions } from './permission.entity';
@@ -26,6 +32,13 @@ export class PermissionGuard implements CanActivate {
     const { authUser } = context
       .switchToHttp()
       .getRequest<RequestWithAuthUser>();
+
+    if (!authUser) {
+      throw new HttpException(
+        'Invalid permission. Permission data not found',
+        HttpStatus.NOT_FOUND,
+      );
+    }
 
     if (authUser.permissions.includes(ModulePermissions.ALL)) {
       return true;

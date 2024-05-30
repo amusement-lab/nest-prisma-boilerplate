@@ -1,7 +1,7 @@
 services:
   db:
-    container_name: pg_container
-    image: postgres:15.4-alpine
+    container_name: pg_container_boilerplate
+    image: postgres:16
     restart: always
     environment:
       POSTGRES_USER: postgres
@@ -10,10 +10,21 @@ services:
     volumes:
       - './tmp/db:/var/lib/postgresql/data'
     ports:
-      - '5902:5432'
+      - '5922:5432'
+
+  db-test:
+    container_name: pg_container_boilerplate_test
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: db
+    ports:
+      - '5933:5432'
 
   adminer:
-    container_name: adminer_container
+    container_name: adminer_container_boilerplate
     depends_on:
       - db
     image: adminer

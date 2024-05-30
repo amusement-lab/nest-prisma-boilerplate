@@ -12,7 +12,7 @@ export class AuthService {
       where: { username },
     });
 
-    if (data.password === password) {
+    if (data && data.password === password) {
       return { token: jwt.sign({ id: data.id }, 'privatekey') };
     } else {
       throw new HttpException(
