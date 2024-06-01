@@ -15,7 +15,7 @@ import { ExceptionResponseBody } from './exception.entity';
 export class AllExceptionsFilter implements ExceptionFilter {
   constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
 
-  catch(exception: unknown, host: ArgumentsHost): void {
+  catch(exception: any, host: ArgumentsHost): void {
     // In certain situations `httpAdapter` might not be available in the
     // constructor method, thus we should resolve it here.
     const { httpAdapter } = this.httpAdapterHost;
@@ -52,6 +52,13 @@ export class AllExceptionsFilter implements ExceptionFilter {
         message: exception.message,
         statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
         info: exception.name,
+      };
+    } else {
+      responseBody = {
+        message:
+          'Something wrong in the server. Please contact the developer for quick fix.',
+        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+        ...exception,
       };
     }
 

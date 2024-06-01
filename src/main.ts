@@ -20,7 +20,7 @@ async function bootstrap() {
 
   // Config for zod and openapi
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('Simkeu API')
+    .setTitle('NestJs API')
     .setDescription('API documentation for SIMKEU application')
     .setVersion('1.0')
     .addBearerAuth(
