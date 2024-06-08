@@ -1,8 +1,7 @@
 import { createZodDto } from '@wahyubucil/nestjs-zod-openapi';
 import { z } from 'zod';
 import { Request } from 'express';
-
-import { ModulePermissions } from './permission.entity';
+import { ModulePermissions } from '@prisma/client';
 
 export interface AuthUser {
   id: string;

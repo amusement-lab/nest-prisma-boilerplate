@@ -1,11 +1,11 @@
 import { Controller, Get, Post, Body, UseGuards } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { ModulePermissions } from '@prisma/client';
 
 import { UserService } from './user.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { PermissionGuard } from '../auth/permission.guard';
 import { Permissions } from '../auth/permission.decorator';
-import { ModulePermissions } from '../auth/permission.entity';
 import {
   GetUsers,
   GetUsersDto,

@@ -1,6 +1,5 @@
 import { SetMetadata } from '@nestjs/common';
-
-import { ModulePermissions } from './permission.entity';
+import { ModulePermissions } from '@prisma/client';
 
 // Read documentation here
 // https://docs.nestjs.com/fundamentals/execution-context#reflection-and-metadata

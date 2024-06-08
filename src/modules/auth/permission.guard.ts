@@ -6,8 +6,8 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
+import { ModulePermissions } from '@prisma/client';
 
-import { ModulePermissions } from './permission.entity';
 import { PERMISSION_KEY } from './permission.decorator';
 import { RequestWithAuthUser } from './auth.entity';
 
