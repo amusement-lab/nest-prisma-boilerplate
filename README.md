@@ -1,47 +1,58 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+## Nest Prisma CBAC Boilerplate
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Same progressive Node.js framework for building efficient and scalable server-side applications you know, but better with prisma, claim based authorization, and several config.</p>
 
-## Nest Prisma Boilerplate
+Some highlighted feature:
 
-Same progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications you know, but better with prisma and several config.</p>
+- Use [claim based authorization (CBAC)](https://docs.nestjs.com/security/authorization#claims-based-authorization) concept for login and authorization
+- Configured with Prisma ORM
+- Configured with Zod as validator
+- Configured with OpenAPI via [@wahyubucil/nestjs-zod-openapi](https://www.npmjs.com/package/@wahyubucil/nestjs-zod-openapi)
+- Configured integration testing with [Vite](https://vitejs.dev/) & [Superagent](https://www.npmjs.com/package/superagent)
 
 ## Installation
+
+1. Install the depedencies
 
 ```bash
 $ pnpm install
 ```
 
-## Running the app
+2. Configure the prisma
+
+```bash
+$ pnpm exec prisma migrate dev
+$ pnpm exec prisma generate
+```
+
+3. Run the seeder for initial data
+
+```bash
+$ pnpm seed
+```
+
+4. Running the app
 
 ```bash
 # development
-$ pnpm run start
+$ pnpm start
 
 # watch mode
-$ pnpm run start:dev
+$ pnpm start:dev
 
 # production mode
-$ pnpm run start:prod
+$ pnpm start:prod
 ```
 
-## Test
+5. If you need doing the testing, you can run:
 
 ```bash
-# unit tests
-$ pnpm run test
+# running the environtment only for the test
+$ pnpm test:env
 
-# e2e tests
-$ pnpm run test:e2e
+# running the test only
+$ pnpm test:run
 
-# test coverage
-$ pnpm run test:cov
+# running both environment and the test
+$ pnpm test
 ```
-
-## Stay in touch
-
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
