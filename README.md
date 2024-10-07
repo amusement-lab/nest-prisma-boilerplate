@@ -18,20 +18,32 @@ Some highlighted feature:
 $ pnpm install
 ```
 
-2. Configure the prisma
+2. Run the docker compose if you want runing postgress and pgadmin in docker environment
+
+```bash
+$ docker compose up -d
+```
+
+3. Copy the `.env.example` file and config your `env`
+
+```bash
+$ cp .env.example .env
+```
+
+4. After setup the `.env` then configure the prisma
 
 ```bash
 $ pnpm exec prisma migrate dev
 $ pnpm exec prisma generate
 ```
 
-3. Run the seeder for initial data
+5. Run the seeder for initial data
 
 ```bash
 $ pnpm seed
 ```
 
-4. Running the app
+6. Running the app
 
 ```bash
 # development
@@ -44,7 +56,13 @@ $ pnpm start:dev
 $ pnpm start:prod
 ```
 
-5. If you need doing the testing, you can run:
+7. If you need doing testing, first you neet set up the env for test
+
+```bash
+$ cp .env.example .env.test
+```
+
+8. Then you can run:
 
 ```bash
 # running the environtment only for the test

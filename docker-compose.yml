@@ -10,7 +10,7 @@ services:
     volumes:
       - './tmp/db:/var/lib/postgresql/data'
     ports:
-      - '5922:5432'
+      - '5432:5432'
 
   db-test:
     container_name: pg_container_boilerplate_test
@@ -21,7 +21,7 @@ services:
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: db
     ports:
-      - '5933:5432'
+      - '5433:5433'
 
   adminer:
     container_name: adminer_container_boilerplate
@@ -30,4 +30,4 @@ services:
     image: adminer
     restart: always
     ports:
-      - '5903:8080'
+      - '8080:8080'
