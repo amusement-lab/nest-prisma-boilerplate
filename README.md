@@ -1,4 +1,4 @@
-## Nest Prisma CBAC Boilerplate
+## Nest Prisma with CBAC Boilerplate
 
 Same progressive Node.js framework for building efficient and scalable server-side applications you know, but better with prisma, claim based authorization, and several config.</p>
 
@@ -8,7 +8,7 @@ Some highlighted feature:
 - Configured with Prisma ORM
 - Configured with Zod as validator
 - Configured with OpenAPI via [@wahyubucil/nestjs-zod-openapi](https://www.npmjs.com/package/@wahyubucil/nestjs-zod-openapi)
-- Configured integration testing with [Vite](https://vitejs.dev/) & [Superagent](https://www.npmjs.com/package/superagent)
+- Configured integration testing with [Vitest](https://vitejs.dev/) & [Superagent](https://www.npmjs.com/package/superagent)
 
 ## Installation
 
